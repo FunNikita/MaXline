@@ -1,0 +1,361 @@
+.access-section {
+    margin-bottom: 16px;
+}
+
+.access-section+.access-section {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .access-section+.access-section {
+    border-top-color: var(--MaxUi-stroke-secondary, rgba(255, 255, 255, 0.08));
+}
+
+/* ---------- ОБЩИЕ ГРУППЫ ---------- */
+
+.access-group {
+    margin-top: 8px;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .access-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.access-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 4px 8px;
+}
+
+.access-group-list {
+    margin-top: 4px;
+}
+
+.access-group-item+.access-group-item {
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+:root[data-color-scheme='dark'] .access-group-item+.access-group-item {
+    border-top-color: var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.08));
+}
+
+.access-search {
+    width: 100%;
+}
+
+/* ---------- КАРТОЧКИ ВНУТРИ ГРУПП ---------- */
+
+.access-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 18px;
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.04));
+}
+
+.access-card-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.access-card-title {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.access-request-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.access-request-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 4px;
+}
+
+.access-secondary {
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.8;
+    word-break: break-word;
+}
+
+.access-meta {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.access-empty-wrapper {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.access-empty {
+    font-size: 13px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* ---------- СТАТУСЫ ---------- */
+
+.access-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.access-status-pill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.access-status-pill--pending {
+    background-color: rgba(45, 124, 255, 0.16);
+    color: #2d7cff;
+}
+
+.access-status-pill--approved {
+    background-color: rgba(34, 197, 94, 0.18);
+    color: #22c55e;
+}
+
+.access-status-pill--rejected {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f97373;
+}
+
+/* строка со сменой статуса для сотрудника/админа */
+.access-admin-row {
+    margin-top: 8px;
+    gap: 8px;
+}
+
+/* селект статуса в админской карточке */
+.access-status-select {
+    min-width: 160px;
+    flex: 1 1 160px;
+    padding: 8px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    color: inherit;
+    font: inherit;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.access-status-select:focus-visible {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+/* ---------- ТАБЫ СТАТУСОВ ДЛЯ ЗАЯВОК ---------- */
+
+.access-tabs {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+    overflow: hidden;
+}
+
+.access-tab {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 0;
+    border: none;
+    background: transparent;
+    padding: 6px 8px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--MaxUi-foreground-tertiary,
+            rgba(255, 255, 255, 0.64));
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.access-tab--active {
+    color: var(--MaxUi-foreground-primary);
+    font-weight: 500;
+}
+
+.access-tabs-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 0;
+    width: calc(100% / var(--tabs-count));
+    transform: translateX(calc(var(--active-index, 0) * 100%));
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.08));
+    transition: transform 160ms ease-out;
+}
+
+:root[data-color-scheme='light'] .access-tab {
+    color: rgba(0, 0, 0, 0.56);
+}
+
+:root[data-color-scheme='dark'] .access-tab {
+    color: var(--MaxUi-foreground-tertiary, rgba(255, 255, 255, 0.64));
+}
+
+/* ---------- ФОРМА ТИПОВ ДЛЯ СОТРУДНИКОВ ---------- */
+
+.access-types-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.access-field {
+    width: 100%;
+}
+
+.access-field-label {
+    display: block;
+    margin-bottom: 0;
+}
+
+.access-input {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+}
+
+.access-input input {
+    padding: 10px 12px;
+}
+
+.access-input:focus-within {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.access-form-submit {
+    margin-top: 4px;
+}
+
+.access-field-error {
+    margin-top: 4px;
+    margin-bottom: 2px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background-color: rgba(255, 92, 92, 0.12);
+    color: var(--MaxUi-foreground-accent, #ff5c5c);
+    font-size: 13px;
+}
+
+.access-types-list {
+    margin-top: 8px;
+}
+
+/* абзац между названием доступа и датой */
+.access-card-title {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+/* карточка заявки с аватаром (админский список) */
+.access-request-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.access-request-avatar {
+    flex-shrink: 0;
+}
+
+.access-request-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* жирные лейблы "Студент", "Создана", "Обновлена" */
+.access-meta-label {
+    font-weight: 600;
+}
+
+.access-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.access-card-main {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.access-card-title {
+    word-break: break-word;
+}
+
+/* абзац для мета-текста: "Выдан", "Код" и т.п. */
+.access-meta {
+    display: block;
+    margin-top: 4px;
+}
+
+/* жирное слово "Код" */
+.access-meta-label {
+    font-weight: 600;
+}
+
+/* красное предупреждение под списком типов */
+.access-types-warning {
+    margin-top: 8px;
+    padding: 0 12px 4px;
+    font-size: 13px;
+    color: var(--MaxUi-foreground-accent, #ff5c5c);
+}

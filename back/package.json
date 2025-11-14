@@ -1,0 +1,29 @@
+{
+    "name": "max-api",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Backend + бот для «Цифрового университета» (MAX)",
+    "main": "dist/index.js",
+    "scripts": {
+        "dev": "tsx watch src/index.ts --clear-screen=false",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "lint": "echo \"No lint yet\"",
+        "test": "echo \"No tests yet\""
+    },
+    "engines": {
+        "node": ">=20"
+    },
+    "dependencies": {
+        "@maxhub/max-bot-api": "github:FunNikita/max-bot-api-client-ts#main",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "mysql2": "^3.15.3"
+    },
+    "devDependencies": {
+        "@types/express": "^5.0.5",
+        "@types/node": "^20.10.0",
+        "tsx": "^4.20.6",
+        "typescript": "^5.9.3"
+    }
+}

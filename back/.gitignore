@@ -1,0 +1,24 @@
+# node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# сборка backendа
+dist/
+
+frontend-build/
+
+# env и чувствительные данные
+.env
+
+# IDE/OS
+.DS_Store
+.idea/
+.vscode/
+
+# Docker
+db_data/
+*.pid
+
+logs/
+*.zip

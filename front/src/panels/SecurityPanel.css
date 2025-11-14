@@ -1,0 +1,334 @@
+.security-panel {
+    padding: 0;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+/* Чуть подчистим отступы контента внутри панели безопасности */
+.security-panel .panel-content {
+    padding: 12px 16px 24px;
+    box-sizing: border-box;
+}
+
+/* Базовые секции (если решишь их использовать) */
+.security-section {
+    margin-bottom: 16px;
+}
+
+.security-group {
+    margin-top: 8px;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .security-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.security-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 4px 8px;
+}
+
+.security-group-body {
+    margin-top: 4px;
+}
+
+/* Результат проверки пропуска / текстовые блоки */
+
+.security-panel .profile-scan-result {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+:root[data-color-scheme='dark'] .security-panel .profile-scan-result {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.security-panel .profile-meta {
+    opacity: 0.7;
+    font-size: 12px;
+}
+
+/* Можно использовать для блока «результат проверки» с цветом статуса */
+.security-result {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    font-size: 13px;
+}
+
+.security-result--success {
+    background-color: rgba(34, 197, 94, 0.16);
+    color: #22c55e;
+}
+
+.security-result--error {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f97373;
+}
+
+/* Ряд кнопок / действий внизу карточки */
+.security-actions {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Центрированный профиль проверяемого студента */
+.security-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 12px;
+}
+
+.security-hero-name {
+    font-weight: 600;
+}
+
+.security-verify-card {
+    margin-top: 8px;
+    padding: 12px 16px;
+    border-radius: 18px;
+    background-color: var(--MaxUi-background-floating-secondary, rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+}
+
+.security-row {
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.security-meta-label {
+    font-weight: 600;
+}
+
+/* успех/ошибка заголовка результата */
+.security-result-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.security-result-title--ok {
+    color: #22c55e;
+}
+
+.security-result-title--bad {
+    color: #f97373;
+}
+
+.security-input {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary, rgba(255, 255, 255, 0.06));
+}
+
+.security-input input {
+    padding: 10px 12px;
+}
+
+.security-input:focus-within {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.security-section {
+    margin-bottom: 16px;
+}
+
+.security-group {
+    margin-top: 8px;
+    padding: 12px 12px 16px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .security-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.security-group-header {
+    padding: 4px 4px 8px;
+}
+
+.security-form {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.security-field {
+    width: 100%;
+}
+
+.security-field-label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Табы выбора типа пропуска — по аналогии с cert-tabs */
+.security-tabs {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.security-tab {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 0;
+    border: none;
+    background: transparent;
+    padding: 6px 8px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--MaxUi-foreground-tertiary,
+            rgba(255, 255, 255, 0.64));
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.security-tab--active {
+    color: var(--MaxUi-foreground-primary);
+    font-weight: 500;
+}
+
+.security-tabs-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 0;
+    width: calc(100% / var(--tabs-count));
+    transform: translateX(calc(var(--active-index, 0) * 100%));
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.08));
+    transition: transform 160ms ease-out;
+}
+
+:root[data-color-scheme='light'] .security-tab {
+    color: rgba(0, 0, 0, 0.56);
+}
+
+:root[data-color-scheme='dark'] .security-tab {
+    color: var(--MaxUi-foreground-terтиary,
+            rgba(255, 255, 255, 0.64));
+}
+
+/* Ряд: инпут + кнопка сканирования */
+.security-input-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.security-token-input {
+    flex: 1 1 auto;
+}
+
+.security-qr-button {
+    width: 100%;
+}
+
+.security-form-submit {
+    margin-top: 4px;
+}
+
+.security-error-text {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #f97373;
+}
+
+/* Модалка результата проверки */
+
+.security-modal-primary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.security-modal-title {
+    margin-top: 4px;
+}
+
+.security-modal-date {
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.security-modal-meta-label {
+    font-weight: 600;
+}
+
+.security-modal-secondary {
+    margin-top: 12px;
+}
+
+.security-modal-owner {
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.security-modal-owner-name {
+    font-size: 14px;
+}
+
+.security-modal-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+}
+
+.security-modal-action {
+    flex: 1 1 0;
+}

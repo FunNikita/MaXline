@@ -1,0 +1,30 @@
+# мусорные файлы
+.DS_Store
+__MACOSX/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+
+# ENV
+.env
+
+# Node
+node_modules/
+
+# Frontend
+front/node_modules/
+front/dist/
+front/.env
+
+# Backend
+back/node_modules/
+back/dist/
+back/.env
+back/logs/
+back/frontend-build/
+back/db_data/

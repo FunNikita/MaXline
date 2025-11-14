@@ -1,0 +1,29 @@
+[backend]  # директория: back/
+node>=20
+express==5.1.0
+mysql2==3.15.3
+dotenv==17.2.3
+@maxhub/max-bot-api==github:FunNikita/max-bot-api-client-ts#main
+typescript==5.9.3
+tsx==4.20.6
+@types/express==5.0.5
+@types/node==20.10.0
+
+[frontend]  # директория: front/
+react==18.3.1
+react-dom==18.3.1
+@maxhub/max-ui==0.1.12
+@vkontakte/icons==3.24.0
+@vkontakte/vk-qr==2.1.1
+vite==7.1.7
+eruda==3.4.3
+
+[frontend-dev-tools]
+eslint==9.36.0
+eslint-plugin-react-hooks==5.2.0
+eslint-plugin-react-refresh==0.4.22
+@eslint/js==9.36.0
+@types/react==19.1.16
+@types/react-dom==19.1.9
+@vitejs/plugin-react==5.0.4
+globals==16.4.0

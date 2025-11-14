@@ -1,0 +1,377 @@
+.cert-section {
+    margin-bottom: 16px;
+}
+
+.cert-section+.cert-section {
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .cert-section+.cert-section {
+    border-top-color: var(--MaxUi-stroke-secondary, rgba(255, 255, 255, 0.08));
+}
+
+/* ---------- ФОРМА НОВОЙ ЗАЯВКИ ---------- */
+
+.cert-form-card {
+    margin-top: 8px;
+    padding: 12px 16px 16px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+.cert-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cert-field {
+    width: 100%;
+}
+
+.cert-field-label {
+    display: block;
+    margin-bottom: 0;
+}
+
+/* базовый контейнер для контролов формы */
+.cert-field-control {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+}
+
+/* единый внешний вид для native select и textarea,
+   Input берёт стили из MAX и только подгоняется по ширине/отступу */
+select.cert-field-control {
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    color: inherit;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+
+/* textarea с тем же контейнером, что и инпут */
+.cert-textarea {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+}
+
+/* внутренний native <textarea> */
+.cert-textarea textarea {
+    min-height: 80px;
+    padding: 10px 12px;
+    resize: vertical;
+    border: none;
+    background: transparent;
+}
+
+/* селекты формы и статуса — без нативной стрелки */
+.cert-select,
+.cert-status-select {
+    appearance: none;
+}
+
+.cert-input {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+}
+
+.cert-input input {
+    padding: 10px 12px;
+}
+
+.cert-input:focus-within {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+
+/* фокус для select/textarea/селекта статуса */
+select.cert-field-control:focus-within,
+select.cert-field-control:focus-visible,
+.cert-textarea:focus-within,
+.cert-status-select:focus-visible {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.cert-form-submit {
+    margin-top: 4px;
+}
+
+/* ---------- СПИСКИ ЗАЯВОК (Group-подобные блоки) ---------- */
+
+.cert-group {
+    margin-top: 8px;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .cert-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.cert-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 4px 8px;
+}
+
+.cert-group-list {
+    margin-top: 4px;
+}
+
+.cert-group-item+.cert-group-item {
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+:root[data-color-scheme='dark'] .cert-group-item+.cert-group-item {
+    border-top-color: var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.08));
+}
+
+.cert-search {
+    width: 100%;
+}
+
+/* ---------- ТАБЫ СТАТУСОВ ---------- */
+
+.cert-tabs {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+    overflow: hidden;
+}
+
+.cert-tab {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 0;
+    border: none;
+    background: transparent;
+    padding: 6px 8px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--MaxUi-foreground-tertiary,
+            rgba(255, 255, 255, 0.64));
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.cert-tab--active {
+    color: var(--MaxUi-foreground-primary);
+    font-weight: 500;
+}
+
+.cert-tabs-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 0;
+    width: calc(100% / var(--tabs-count));
+    transform: translateX(calc(var(--active-index, 0) * 100%));
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.08));
+    transition: transform 160ms ease-out;
+}
+
+/* ---------- КАРТОЧКИ ЗАЯВОК В СПИСКАХ ---------- */
+
+.cert-request-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+}
+
+.cert-request-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.cert-request-avatar {
+    flex-shrink: 0;
+}
+
+/* заголовок карточки + статус */
+.cert-request-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.cert-request-title {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+/* строка с датами создания/обновления */
+.cert-request-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 4px;
+}
+
+.cert-request-meta-row .cert-meta {
+    margin-top: 0;
+}
+
+.cert-secondary {
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.8;
+    word-break: break-word;
+}
+
+.cert-meta {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.cert-empty-wrapper {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-empty {
+    font-size: 13px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* строка со сменой статуса для сотрудника/админа */
+.cert-admin-row {
+    margin-top: 8px;
+    gap: 8px;
+}
+
+/* селект статуса в админской карточке — размеры задаём тут,
+   визуальный стиль берётся из .cert-field-control */
+.cert-status-select {
+    min-width: 160px;
+    flex: 1 1 160px;
+}
+
+/* ---------- ПИЛЮЛИ СТАТУСОВ ---------- */
+
+.cert-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+.cert-status-pill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* цвета статусов (адекватно выглядят и в светлой, и в тёмной теме) */
+.cert-status-pill--pending {
+    background-color: rgba(45, 124, 255, 0.16);
+    color: #2d7cff;
+}
+
+.cert-status-pill--in_progress {
+    background-color: rgba(234, 179, 8, 0.18);
+    color: #eab308;
+}
+
+.cert-status-pill--ready {
+    background-color: rgba(34, 197, 94, 0.18);
+    color: #22c55e;
+}
+
+.cert-status-pill--received {
+    background-color: rgba(52, 211, 153, 0.18);
+    color: #14b8a6;
+}
+
+.cert-status-pill--rejected {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f97373;
+}
+
+.cert-field-error {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background-color: rgba(255, 92, 92, 0.12);
+    color: var(--MaxUi-foreground-accent, #ff5c5c);
+    font-size: 13px;
+}
+
+/* жирные лейблы "Куда", "Комментарий", "Создана" и т.п. */
+.cert-secondary-label,
+.cert-meta-label {
+    font-weight: 600;
+}
+
+:root[data-color-scheme='light'] .cert-tab {
+    color: rgba(0, 0, 0, 0.56);
+}
+
+:root[data-color-scheme='dark'] .cert-tab {
+    color: var(--MaxUi-foreground-tertiary, rgba(255, 255, 255, 0.64));
+}
+
+.cert-fatal {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}

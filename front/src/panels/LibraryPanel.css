@@ -1,0 +1,277 @@
+.library-section {
+    margin-bottom: 16px;
+}
+
+.library-group {
+    margin-top: 8px;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .library-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.library-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 4px 8px;
+}
+
+.library-group-list {
+    margin-top: 4px;
+}
+
+.library-group-item+.library-group-item {
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+:root[data-color-scheme='dark'] .library-group-item+.library-group-item {
+    border-top-color: var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.08));
+}
+
+.library-search {
+    width: 100%;
+}
+
+/* пустые состояния */
+
+.library-empty-wrapper {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.library-empty {
+    font-size: 13px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* карточка книги */
+
+.library-book-card {
+    display: flex;
+    gap: 12px;
+    padding: 10px 12px;
+}
+
+.library-book-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.library-book-actions {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.library-book-title {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.library-book-author {
+    display: block;
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.library-book-tags {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+    word-break: break-word;
+}
+
+.library-book-meta {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.library-book-request-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.library-book-unavailable {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* заявки */
+
+.library-request-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+}
+
+.library-request-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.library-request-avatar {
+    flex-shrink: 0;
+}
+
+.library-request-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.library-request-title {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.library-request-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 4px;
+}
+
+/* формы */
+
+.library-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.library-field {
+    width: 100%;
+}
+
+.library-field-label {
+    display: block;
+    margin-bottom: 0;
+}
+
+.library-input {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+}
+
+.library-input input {
+    padding: 10px 12px;
+}
+
+.library-input:focus-within {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.library-form-submit {
+    margin-top: 4px;
+}
+
+.library-field-error {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background-color: rgba(255, 92, 92, 0.12);
+    color: var(--MaxUi-foreground-accent, #ff5c5c);
+    font-size: 13px;
+}
+
+/* статусы заявок */
+
+.library-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+/* new */
+.library-status-pill--new {
+    background-color: rgba(45, 124, 255, 0.16);
+    color: #2d7cff;
+}
+
+/* approved */
+.library-status-pill--approved {
+    background-color: rgba(34, 197, 94, 0.18);
+    color: #22c55e;
+}
+
+/* rejected */
+.library-status-pill--rejected {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f97373;
+}
+
+/* issued */
+.library-status-pill--issued {
+    background-color: rgba(14, 165, 233, 0.18);
+    color: #0ea5e9;
+}
+
+/* returned */
+.library-status-pill--returned {
+    background-color: rgba(148, 163, 184, 0.2);
+    color: #64748b;
+}
+
+/* мета */
+
+.library-meta {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.library-meta-label {
+    font-weight: 600;
+}
+
+/* админская строка с селектом статуса */
+
+.library-admin-row {
+    margin-top: 8px;
+    gap: 8px;
+}
+
+.library-status-select {
+    min-width: 160px;
+    flex: 1 1 160px;
+}

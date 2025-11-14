@@ -1,0 +1,405 @@
+/* ---------- ОБЩАЯ ОБЁРТКА СЕКЦИЙ ---------- */
+
+.guest-section {
+    margin-bottom: 16px;
+}
+
+/* общий контейнер группы (как cert-group) */
+.guest-group {
+    margin-top: 8px;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .guest-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.guest-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 4px 8px;
+}
+
+.guest-group-list {
+    margin-top: 4px;
+}
+
+.guest-group-item {
+    padding: 0 8px;
+}
+
+.guest-group-item+.guest-group-item {
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+:root[data-color-scheme='dark'] .guest-group-item+.guest-group-item {
+    border-top-color: var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.08));
+}
+
+/* поиск */
+.guest-search {
+    width: 100%;
+}
+
+/* пустое состояние */
+.guest-empty-wrapper {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-empty {
+    font-size: 13px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* ---------- ФОРМА СОЗДАНИЯ ПРОПУСКА ---------- */
+
+.guest-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.guest-field {
+    width: 100%;
+}
+
+.guest-field-label {
+    display: block;
+    margin-bottom: 0;
+}
+
+/* инпуты как в справках */
+.guest-input {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+}
+
+.guest-input input {
+    padding: 10px 12px;
+}
+
+.guest-input:focus-within {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+/* подсказка под датой: отступ у всех строк */
+.guest-hint {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+    padding-left: 12px;
+}
+
+/* сообщение об ошибке формы */
+.guest-field-error {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background-color: rgba(255, 92, 92, 0.12);
+    color: var(--MaxUi-foreground-accent, #ff5c5c);
+    font-size: 13px;
+}
+
+.guest-form-submit {
+    margin-top: 4px;
+}
+
+/* ---------- КАРТОЧКИ ГОСТЕВЫХ ПРОПУСКОВ ---------- */
+
+.guest-pass-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.guest-pass-main {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.guest-pass-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* имя слева, статус справа */
+    gap: 8px;
+    margin-bottom: 4px;
+    width: 100%;
+    /* без переносов, чтобы статус не прыгал на новую строку */
+    flex-wrap: nowrap;
+}
+
+.guest-meta {
+    margin-top: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.guest-meta-label {
+    font-weight: 600;
+}
+
+.guest-pass-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* ---------- ПИЛЮЛИ СТАТУСОВ ГОСТЕВЫХ ПРОПУСКОВ ---------- */
+
+.guest-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    margin-left: auto;
+    /* всегда уезжает вправо от ФИО */
+    flex-shrink: 0;
+    /* не сжимается, чтобы не ломался текст статуса */
+}
+
+.guest-status-pill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* цвета статусов */
+
+.guest-status-pill--active {
+    background-color: rgba(45, 124, 255, 0.16);
+    color: #2d7cff;
+}
+
+.guest-status-pill--used {
+    background-color: rgba(34, 197, 94, 0.18);
+    color: #22c55e;
+}
+
+.guest-status-pill--cancelled {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f97373;
+}
+
+/* На маленьких экранах кнопки переезжают вниз,
+   но статус остаётся справа, пока хватает места */
+
+@media (max-width: 649px) {
+    .guest-pass-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .guest-pass-actions {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .guest-pass-actions>* {
+        flex: 1 1 auto;
+        min-width: 140px;
+    }
+}
+
+/* ---------- МОДАЛКА ГОСТЕВОГО ПРОПУСКА ---------- */
+
+.guest-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.65);
+    /* затемнение фона */
+    backdrop-filter: blur(1px); /* опционально, можно убрать */
+}
+
+.guest-modal {
+    width: 100%;
+    max-width: 440px;
+    max-height: 100%;
+    padding: 16px 16px 20px;
+    border-radius: 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    /* фон как у всего сервиса, а не синяя карточка */
+    background-color: var(
+        --MaxUi-background-floating-primary,
+        rgba(18, 18, 20, 0.96)
+    );
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+}
+
+:root[data-color-scheme='light'] .guest-modal {
+    background-color: var(--MaxUi-background-primary, #ffffff);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+}
+
+.guest-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.guest-modal-body {
+    padding-top: 4px;
+}
+
+.guest-modal-close {
+    flex-shrink: 0;
+}
+
+/* ФИО + дата визита — нормальный отступ между строками */
+.guest-modal-meta {
+    margin-top: 12px;
+}
+
+.guest-modal-meta>*+* {
+    margin-top: 4px;
+    /* отступ после ФИО перед "Дата визита" */
+}
+
+.guest-modal-date {
+    display: block;
+}
+
+/* QR внутри модалки — подстраивается под ширину модалки */
+.guest-modal .qr-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-modal .qr-svg svg {
+    width: min(260px, 70vw);
+    height: auto;
+}
+
+/* ---------- АДАПТИВ ДЛЯ МОБИЛОК И ДЕСКТОПОВ ---------- */
+
+/* < 650px: кнопки под текстом, после "Дата визита" */
+@media (max-width: 649px) {
+    .guest-pass-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .guest-pass-actions {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-top: 8px;
+        /* визуально отделяем от текста */
+    }
+
+    .guest-pass-actions>* {
+        flex: 1 1 auto;
+        min-width: 140px;
+        /* чтобы "Аннулировать" не обрезался */
+    }
+}
+
+/* ≥ 768px: модалка чуть шире и больше отступы по краям */
+@media (min-width: 768px) {
+    .guest-modal-backdrop {
+        padding: 32px;
+    }
+
+    .guest-modal {
+        max-width: 480px;
+    }
+}
+
+/* ---------- ФИКС ШАПКИ ГОСТЕВОГО ПРОПУСКА ---------- */
+
+/* основной текстовый блок тянется на всю доступную ширину */
+.guest-pass-main {
+    flex: 1 1 auto;
+    min-width: 0;
+    /* важно, как в справках */
+}
+
+/* заголовок: имя слева, статус справа по краю блока */
+.guest-pass-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex: 1 1 auto;
+    /* вместо width: 100% */
+    flex-wrap: nowrap;
+    /* можно оставить, если хочешь избегать переноса */
+}
+
+/* имя может обрезаться с многоточием, но статус всегда справа */
+.guest-pass-title {
+    margin: 0;
+    font-weight: 500;
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* плашка статуса не сжимается и не переносится */
+.guest-status-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* на узких экранах кнопки под текстом, чтобы не давили ширину */
+@media (max-width: 650px) {
+    .guest-pass-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .guest-pass-actions {
+        margin-top: 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+}

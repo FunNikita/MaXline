@@ -1,0 +1,508 @@
+.ideas-section {
+    margin-bottom: 16px;
+}
+
+/* Общая группа (как guest-group / access-group) */
+.ideas-group {
+    margin-top: 8px;
+    padding: 8px 8px 12px;
+    border-radius: 24px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+}
+
+:root[data-color-scheme='dark'] .ideas-group {
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.12));
+}
+
+.ideas-group-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 4px 8px;
+}
+
+.ideas-group-list {
+    margin-top: 4px;
+}
+
+.ideas-group-item+.ideas-group-item {
+    border-top: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.06));
+    margin-top: 8px;
+    padding-top: 8px;
+}
+
+:root[data-color-scheme='dark'] .ideas-group-item+.ideas-group-item {
+    border-top-color: var(--MaxUi-stroke-secondary,
+            rgba(255, 255, 255, 0.08));
+}
+
+/* Пустое состояние */
+.ideas-empty-wrapper {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ideas-empty {
+    font-size: 13px;
+    opacity: 0.8;
+    text-align: center;
+}
+
+/* Фильтры: категория + сортировка */
+.ideas-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.ideas-filter-item {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.ideas-author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.ideas-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.ideas-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ideas-filter-label {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Табы сортировки (похоже на access-tabs, но компактнее) */
+.ideas-sort-tabs {
+    position: relative;
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-secondary,
+            rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.06));
+    overflow: hidden;
+}
+
+.ideas-sort-tab {
+    position: relative;
+    z-index: 1;
+    flex: 1 1 0;
+    border: none;
+    background: transparent;
+    padding: 5px 8px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--MaxUi-foreground-tertiary,
+            rgba(255, 255, 255, 0.64));
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ideas-sort-tab--active {
+    color: var(--MaxUi-foreground-primary);
+    font-weight: 500;
+}
+
+.ideas-sort-tabs-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 0;
+    width: calc(100% / var(--tabs-count));
+    transform: translateX(calc(var(--active-index, 0) * 100%));
+    border-radius: 999px;
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    box-shadow: 0 0 0 1px var(--MaxUi-stroke-secondary,
+            rgba(0, 0, 0, 0.08));
+    transition: transform 160ms ease-out;
+}
+
+:root[data-color-scheme='light'] .ideas-sort-tab {
+    color: rgba(0, 0, 0, 0.56);
+}
+
+:root[data-color-scheme='dark'] .ideas-sort-tab {
+    color: var(--MaxUi-foreground-tertiary, rgba(255, 255, 255, 0.64));
+}
+
+/* Карточка идеи */
+.ideas-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 12px;
+    border-radius: 18px;
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.04));
+}
+
+.ideas-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ideas-author-text {
+    min-width: 0;
+}
+
+.ideas-author-name {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0;
+    word-break: break-word;
+}
+
+.ideas-meta {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    opacity: 0.7;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.ideas-card-body {
+    margin-top: 6px;
+}
+
+.ideas-title {
+    display: block;
+    margin: 0;
+    margin-top: 2px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.ideas-text-preview {
+    margin-top: 4px;
+    font-size: 13px;
+    opacity: 0.9;
+    word-break: break-word;
+}
+
+.ideas-category {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+}
+
+.ideas-text {
+    margin-top: 8px;
+}
+
+.ideas-text-paragraph {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.9;
+    word-break: break-word;
+}
+
+.ideas-text-paragraph+.ideas-text-paragraph {
+    margin-top: 4px;
+}
+
+
+/* Подвал карточки: лайки / дизлайки + админские действия */
+.ideas-card-footer {
+    margin-top: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Пилюля статуса идеи */
+.ideas-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    line-height: 16px;
+    white-space: nowrap;
+}
+
+/* Цвета статусов */
+.ideas-status-pill--new {
+    background-color: rgba(45, 124, 255, 0.16);
+    color: #2d7cff;
+}
+
+.ideas-status-pill--under_review {
+    background-color: rgba(139, 92, 246, 0.18);
+    color: #8b5cf6;
+}
+
+.ideas-status-pill--planned {
+    background-color: rgba(234, 179, 8, 0.2);
+    color: #eab308;
+}
+
+.ideas-status-pill--in_progress {
+    background-color: rgba(56, 189, 248, 0.2);
+    color: #0ea5e9;
+}
+
+.ideas-status-pill--implemented {
+    background-color: rgba(34, 197, 94, 0.18);
+    color: #22c55e;
+}
+
+.ideas-status-pill--rejected {
+    background-color: rgba(248, 113, 113, 0.2);
+    color: #f97373;
+}
+
+.ideas-status-pill--duplicate {
+    background-color: rgba(148, 163, 184, 0.28);
+    color: #64748b;
+}
+
+/* Блок голосования */
+.ideas-votes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+}
+
+.ideas-vote-icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.ideas-vote-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: none;
+    background-color: transparent;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--MaxUi-foreground-secondary,
+            rgba(255, 255, 255, 0.8));
+}
+
+.ideas-vote-button:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.ideas-vote-button--like {
+    /* базовый цвет подписи лайка (чуть приглушённый акцент) */
+    color: rgba(45, 124, 255, 0.8);
+}
+
+.ideas-vote-button--dislike {
+    /* базовый цвет подписи дизлайка (более мягкий красный) */
+    color: rgba(249, 115, 115, 0.85);
+}
+
+
+.ideas-vote-button--active {
+    background-color: rgba(45, 124, 255, 0.14);
+    color: var(--MaxUi-foreground-accent, #2d7cff);
+}
+
+.ideas-vote-button--dislike.ideas-vote-button--active {
+    background-color: rgba(248, 113, 113, 0.14);
+    color: #f97373;
+}
+
+/* Админские элементы: select статуса + кнопка удаления */
+.ideas-admin-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    flex: 1 1 220px;
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.ideas-status-select {
+    min-width: 0;
+    flex: 2 1 0;
+    padding: 6px 10px;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    color: inherit;
+    font: inherit;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.ideas-status-select:focus-visible {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.ideas-delete-button {
+    flex: 1 1 0;
+    white-space: nowrap;
+}
+
+/* Нижняя кнопка "Создать идею" */
+.ideas-create-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8px 16px 8px;
+    border-top: 1px solid var(--MaxUi-stroke-primary, rgba(255, 255, 255, 0.08));
+    background-color: var(--MaxUi-background-floating-primary, rgba(18, 18, 20, 0.96));
+    backdrop-filter: blur(18px);
+    z-index: 19;
+}
+
+:root[data-color-scheme='light'] .ideas-create-bar {
+    border-top-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(255, 255, 255, 0.96);
+}
+
+.ideas-create-button {
+    width: 100%;
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .ideas-create-bar {
+        padding-bottom: calc(8px + env(safe-area-inset-bottom));
+    }
+}
+
+
+/* Форма в модалке создания идеи */
+.ideas-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ideas-field {
+    width: 100%;
+}
+
+.ideas-field-label {
+    display: block;
+    margin-bottom: 0;
+}
+
+.ideas-input {
+    width: 100%;
+    margin-top: 4px;
+    box-sizing: border-box;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+}
+
+.ideas-input input {
+    padding: 10px 12px;
+}
+
+.ideas-input:focus-within {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.ideas-textarea {
+    width: 100%;
+    margin-top: 4px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--MaxUi-stroke-secondary, rgba(0, 0, 0, 0.12));
+    background-color: var(--MaxUi-background-floating-primary,
+            rgba(255, 255, 255, 0.06));
+    color: inherit;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 96px;
+}
+
+.ideas-textarea:focus-visible {
+    border-color: var(--MaxUi-foreground-accent, #2d7cff);
+    box-shadow: 0 0 0 1px var(--MaxUi-foreground-accent, #2d7cff);
+    outline: none;
+}
+
+.ideas-form-submit {
+    margin-top: 4px;
+}
+
+/* Ошибка формы в модалке */
+.ideas-field-error {
+    margin-top: 4px;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    background-color: rgba(255, 92, 92, 0.12);
+    color: var(--MaxUi-foreground-accent, #ff5c5c);
+    font-size: 13px;
+}
+
+.ideas-sentinel {
+    width: 100%;
+    height: 1px;
+}
+
+.ideas-more-spinner {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 480px) {
+    .ideas-admin-controls {
+        flex-basis: 100%;
+        margin-left: 0;
+        justify-content: flex-start;
+    }
+}
